@@ -1,5 +1,5 @@
 
-        /* 基本のリセット */
+ 
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +24,7 @@
             font-weight: bold;
         }
 
-        /* 占い結果を表示するラッパー */
+   
         .wrapper {
             background: #fff;
             border-radius: 15px;
@@ -46,7 +46,7 @@
             margin: 15px 0;
         }
 
-        /* ボタンスタイル */
+       
         .wrapper-button {
             margin-top: 20px;
         }
@@ -73,7 +73,7 @@
             transform: translateY(2px);
         }
 
-        /* 結果表示エリア */
+ 
         #result {
             font-size: 2em;
             font-weight: bold;
@@ -87,14 +87,13 @@
             text-align: center;
         }
 
-        /* コメントスタイル */
+    
         #comment {
             font-size: 1.3em;
             color: #555;
             margin-top: 15px;
         }
 
-        /* レスポンシブデザイン（画面が小さくなったとき） */
         @media (max-width: 480px) {
             body {
                 padding: 10px;

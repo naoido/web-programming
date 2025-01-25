@@ -1,6 +1,0 @@
-
-.select-container {
-    display: flex; /* フレックスボックスを使って横並びにする */
-    justify-content: center; /* セレクトボックスを中央揃え */
-    align-items: center; /* セレクトボックスを縦方向にも中央揃え */
-}

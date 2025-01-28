@@ -1,0 +1,97 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* 背景色 */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* テキストを中央揃え */
+}
+body::before, body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px; /* 帯の幅 */
+    background-color: #161c45; /* 帯の色 */
+}
+
+body::before {
+    left: 0; /* 左端に帯を追加 */
+}
+
+body::after {
+    right: 0; /* 右端に帯を追加 */
+}
+
+h2 {
+    font-size: 2em;
+    color: #161c45; /* 見出しの色 */
+    margin-top: 50px;
+}
+
+h3 { /* 運勢結果 */
+    font-size: 1.5em;
+    color: #161c45;
+    margin-top: 30px;
+}
+
+label { /* 月日 */
+    font-size: 1.5em;
+    color: #161c45;
+    margin-top: 10px;
+}
+
+select {
+    font-size: 1.1em;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* 月と日のセレクトボックスを横並びにする */
+.select-container {
+    display: flex;
+    justify-content: center; /* セレクトボックスを中央揃え */
+    align-items: center; /* セレクトボックスを垂直方向に中央揃え */
+}
+
+.select-container label {
+    margin-right: 10px; /* ラベルの右側に余白を追加 */
+}
+
+select {
+    margin-left: 10px; /* セレクトボックスの左側に余白を追加 */
+}
+
+/* ボタンのスタイル */
+.btn-square-shadow {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+.btn-square-shadow:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+
+
+#result {
+    font-size: 1.3em;
+    color: #161c45; /* 結果表示の色 */
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #161c45;
+    border-radius: 10px;
+    display: inline-block;
+    width: 80%; /* 結果領域の幅 */
+    text-align: center;
+    background-color: #dbe6ff; /* 結果の背景色 */
+}
+

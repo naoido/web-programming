@@ -44,7 +44,16 @@
 
             // 結果を表示
             document.getElementById("result").innerHTML = horoscope;
+
+
+            //matuzaki
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "BirthdayServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("horoscope=" + encodeURIComponent(horoscope));
+
         }
+
     </script>
 </head>
 <body>

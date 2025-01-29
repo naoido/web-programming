@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -20,13 +21,20 @@ public class InitServlet extends HttpServlet {
         try (Connection conn = DatabaseUtil.getConnection();
              Statement stmt = conn.createStatement()) {
             // SQLファイルを読み込む
-            String sql = new String(Files.readAllBytes(Paths.get(getServletContext().getRealPath("/WEB-INF/classes/create_database.sql"))));
+            String sql = new String(Files.readAllBytes(Paths.get(getClass().getClassLoader().getResource("create_database.sql").toURI())));
             // SQL文を実行
-            stmt.executeUpdate(sql);
+            for (String query : sql.split(";")) {
+                if (!query.trim().isEmpty()) {
+                    stmt.executeUpdate(query);
+                }
+            }
             resp.getWriter().println("Database initialized successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
             resp.getWriter().println("Database initialization failed.");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            resp.getWriter().println("SQL file not found.");
         }
     }
 }

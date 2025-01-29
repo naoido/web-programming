@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseUtil {
-    private static final String JDBC_URL = "jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE";
-    private static final String JDBC_USER = "sa";
-    private static final String JDBC_PASSWORD = "";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/mydatabase";
+    private static final String JDBC_USER = "root";
+    private static final String JDBC_PASSWORD = "password";
 
     static {
         try {
-            Class.forName("org.h2.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

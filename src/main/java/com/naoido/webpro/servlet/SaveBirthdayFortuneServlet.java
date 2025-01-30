@@ -12,7 +12,11 @@ import java.io.IOException;
 public class SaveBirthdayFortuneServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String horoscope = request.getParameter("horoscope");
+
         HttpSession session = request.getSession();
         session.setAttribute("birthdayFortune", horoscope);
+        request.setAttribute("horoscope", horoscope);
+
+        request.getRequestDispatcher("birthdayfortune.jsp").forward(request, response);
     }
 }

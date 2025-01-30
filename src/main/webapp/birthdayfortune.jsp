@@ -46,12 +46,12 @@
             document.getElementById("result").innerHTML = horoscope;
 
 
-            //matuzaki
+            //<--matuzaki
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "SaveBirthdayFortuneServlet", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("horoscope=" + encodeURIComponent(horoscope));
-
+            //matuzaki-->
         }
 
     </script>

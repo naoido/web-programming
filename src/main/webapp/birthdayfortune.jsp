@@ -46,8 +46,11 @@
             document.getElementById("result").innerHTML = horoscope;
 
             //matuzaki 結果をフォームに設定してサーブレットに送信
-            document.getElementById("horoscope").value = horoscope;
-            document.getElementById("horoscopeForm").submit();
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "SaveBirthdayFortuneServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("horoscope=" + encodeURIComponent(horoscope));
+
             //matuzaki
         }
 

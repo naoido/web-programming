@@ -114,6 +114,6 @@
 <h3>運勢結果:</h3>
 <p id="result"></p>
 
-<a href="all-result.jsp">占い結果一覧に戻る</a><!--matuzaki-->
+<%@ include file="footer.jsp" %> <!--matuzaki-->
 </body>
 </html>

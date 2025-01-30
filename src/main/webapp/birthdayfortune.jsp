@@ -47,8 +47,8 @@
 
 
             //matuzaki
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "BirthdayServlet", true);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "SaveBirthdayFortuneServlet", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.send("horoscope=" + encodeURIComponent(horoscope));
 
@@ -117,6 +117,6 @@
 <h3>運勢結果:</h3>
 <p id="result"></p>
 
-
+<a href="all-result.jsp">占い結果一覧に戻る</a><!--matuzaki-->
 </body>
 </html>

@@ -47,22 +47,24 @@
         // 選択されたカードをセッションに保存
         session.setAttribute("selectedCard", selectedCard);
 
-        // all-result.jspにリダイレクト
-        response.sendRedirect("all-result.jsp");
+        // サーブレットにリダイレクトして結果を保存
+        response.sendRedirect("SaveTarotResultServlet");
         return;
     }
+
+    // セッションからタロット占いの結果を取得
+    String tarotResult = (String) session.getAttribute("tarotResult");
 %>
 
 <form id="tarotForm" method="post">
     <button type="button" onclick="showTarot()">タロットを引く</button>
 </form>
 
-<% if (selectedCard != null) { %>
-<h2>あなたのタロットカードは: <%= selectedCard.get("name") %></h2>
-<p>意味: <%= selectedCard.get("meaning") %></p>
-<p>今日の運勢: <%= selectedCard.get("fortune") %></p>
+<% if (tarotResult != null) { %>
+<h2>タロットカードの結果</h2>
+<p><%= tarotResult %></p>
+<a href="all-result.jsp">占い結果一覧に戻る</a>
 <% } %>
 
-<a href="all-result.jsp">占い結果一覧に戻る</a>
 </body>
 </html>

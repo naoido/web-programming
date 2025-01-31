@@ -44,13 +44,24 @@
 
             // 結果を表示
             document.getElementById("result").innerHTML = horoscope;
+
+            //matuzaki 結果をフォームに設定してサーブレットに送信
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "SaveBirthdayFortuneServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("horoscope=" + encodeURIComponent(horoscope));
+
+            //matuzaki
         }
+
     </script>
 </head>
 <body>
+<jsp:include page="nav.jsp">
+    <jsp:param name="page" value="bithday" />
+</jsp:include>
 <h2>誕生日占い</h2>
 
-<!-- 生年月日入力フォーム -->
 <label for="month">月:</label>
 <select id="month">
     <option value="1">1月</option>
@@ -107,7 +118,5 @@
 <!-- 結果表示 -->
 <h3>運勢結果:</h3>
 <p id="result"></p>
-
-
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.naoido.webpro.servlet;
 
+import com.naoido.webpro.dao.UserDao;
+import com.naoido.webpro.model.User;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -8,28 +10,25 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/LoginServlet")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "admin";
+    private final UserDao userDao = new UserDao();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
+
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if (USERNAME.equals(username) && PASSWORD.equals(password)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("authenticated", true);
-            session.setAttribute("username", username);
+        User user = userDao.validateUser(email, password);
 
-            response.sendRedirect("home.jsp");
+        if (user != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            session.setAttribute("authenticated", true);
+            response.sendRedirect("index.jsp");
         } else {
-            response.setContentType("text/html");
-            response.getWriter().println("<html><body>");
-            response.getWriter().println("<h1>Login Failed</h1>");
-            response.getWriter().println("<a href=\"login.html\">Try Again</a>");
-            response.getWriter().println("</body></html>");
+            response.sendRedirect("login.jsp?error=1");
         }
     }
 }

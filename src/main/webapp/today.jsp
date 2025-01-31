@@ -4,27 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/today-style.css">
+    <link rel="stylesheet" type="text/css" href="css/today-style.css">
     <title>今日のおみくじ</title>
-    
 </head>
 <body>
-<h1>今日のおみくじ</h1>
+<jsp:include page="nav.jsp">
+    <jsp:param name="page" value="today" />
+</jsp:include>
+<div class="container">
+    <h1>今日のおみくじ</h1>
 
-<div>
-    <p>今日の日付: <script>
-        document.write(new Date().toLocaleDateString());
-    </script></p>
-</div>
-
-
-<div class="wrapper">
-    <p>ボタンをクリックして今日のおみくじを引こう！</p>
-    <div class="wrapper-button">
-        <button id="button">あなたの運勢を占う</button>
+    <div>
+        <p>今日の日付: <script>
+            document.write(new Date().toLocaleDateString());
+        </script></p>
     </div>
-    <p id="result"></p> <!-- 占い結果を表示する場所 -->
-    <p id="comment"></p> <!-- コメントを表示する場所 -->
+
+
+    <div class="wrapper">
+        <p>ボタンをクリックして今日のおみくじを引こう！</p>
+        <div class="wrapper-button">
+            <button id="button">あなたの運勢を占う</button>
+        </div>
+        <p id="result"></p> <!-- 占い結果を表示する場所 -->
+        <p id="comment"></p> <!-- コメントを表示する場所 -->
+    </div>
 </div>
 
 <script>

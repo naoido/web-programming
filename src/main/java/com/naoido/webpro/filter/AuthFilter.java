@@ -18,17 +18,17 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-//        HttpServletRequest httpRequest = (HttpServletRequest) request;
-//        HttpServletResponse httpResponse = (HttpServletResponse) response;
-//        HttpSession session = httpRequest.getSession(false);
-//
-//        boolean isAuthenticated = session != null && session.getAttribute("authenticated") != null;
-//
-//        if (!isAuthenticated && !httpRequest.getRequestURI().endsWith("login.html")
-//                && !httpRequest.getRequestURI().endsWith("LoginServlet")) {
-//            httpResponse.sendRedirect("login.html");
-//            return;
-//        }
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        HttpSession session = httpRequest.getSession(false);
+
+        boolean isAuthenticated = session != null && session.getAttribute("authenticated") != null;
+
+        if (!isAuthenticated && !httpRequest.getRequestURI().endsWith("login.jsp")
+                && !httpRequest.getRequestURI().endsWith("login")) {
+            httpResponse.sendRedirect("login.jsp");
+            return;
+        }
 
         chain.doFilter(request, response);
     }

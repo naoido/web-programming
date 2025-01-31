@@ -24,6 +24,8 @@ spec:
               value: "root"
             - name: DATABASE_PASSWORD
               value: "password"
+            - name: REDIS_HOST
+              value: "java-fortune-redis-service"
 ---
 apiVersion: v1
 kind: Service

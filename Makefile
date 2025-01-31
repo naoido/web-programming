@@ -1,5 +1,5 @@
 apply:
-	kubectl create configmap mysql-init-sql --from-file=./k8s/db/init.sql
+	kubectl create configmap mysql-init-sql --from-file=./k8s/db/init.sql || true
 	kubectl apply -f k8s/manifests/
 
 delete:

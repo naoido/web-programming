@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+.container {
     font-family: 'Arial', sans-serif;
     background: #f4f7f6;
     display: flex;

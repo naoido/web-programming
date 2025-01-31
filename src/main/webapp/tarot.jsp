@@ -8,6 +8,11 @@
             document.getElementById("tarotForm").submit();
         }
     </script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="nav.jsp">

@@ -1,25 +1,8 @@
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #ffffff; /* 背景色 */
     margin: 0;
     padding: 0;
     text-align: center; /* テキストを中央揃え */
-}
-body::before, body::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 20px; /* 帯の幅 */
-    background-color: #161c45; /* 帯の色 */
-}
-
-body::before {
-    left: 0; /* 左端に帯を追加 */
-}
-
-body::after {
-    right: 0; /* 右端に帯を追加 */
 }
 
 h2 {

@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 import com.naoido.webpro.dao.KanjiDao;
+import com.naoido.webpro.dao.ResultDao;
+import com.naoido.webpro.model.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -59,6 +61,9 @@ public class KanjiServlet extends HttpServlet {
         }
         session.setAttribute("luck", luck);
         session.setAttribute("kakusuu", kakusuu);
+
+        User user = (User) session.getAttribute("user");
+        ResultDao.INSTANCE.saveResult(user.getUsername(), "画数占いの結果", luck);
 
         RequestDispatcher rd = request.getRequestDispatcher("/kanji-result.jsp");
         rd.forward(request, response);

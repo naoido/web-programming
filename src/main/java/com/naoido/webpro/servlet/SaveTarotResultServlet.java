@@ -1,5 +1,7 @@
 package com.naoido.webpro.servlet;
 
+import com.naoido.webpro.dao.ResultDao;
+import com.naoido.webpro.model.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -32,6 +34,9 @@ public class SaveTarotResultServlet extends HttpServlet {
 
             String result = "タロットカード: " + cardName + ", 意味: " + selectedCard.get("meaning") + ", 今日の運勢: " + selectedCard.get("fortune");
             session.setAttribute("tarotResult", result);
+
+            User user = (User) session.getAttribute("user");
+            ResultDao.INSTANCE.saveResult(user.getUsername(), "タロット占いの結果", cardName);
         }
 
         response.sendRedirect("tarot.jsp");

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-fortune-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-fortune-redis
+  template:
+    metadata:
+      labels:
+        app: java-fortune-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:7
+          ports:
+            - containerPort: 6379
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: "250m"
+            limits:
+              memory: "500Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-fortune-redis-service
+spec:
+  type: ClusterIP
+  selector:
+    app: java-fortune-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379

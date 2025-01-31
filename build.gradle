@@ -14,18 +14,19 @@ ext {
     junitVersion = '5.11.0'
 }
 
-sourceCompatibility = '21'
-targetCompatibility = '21'
-
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
 dependencies {
+    implementation 'org.mindrot:jbcrypt:+'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'redis.clients:jedis:5.2.0'
     compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
 }
 
 test {

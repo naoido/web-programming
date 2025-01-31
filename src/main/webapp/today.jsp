@@ -9,6 +9,9 @@
     
 </head>
 <body>
+<jsp:include page="nav.jsp">
+    <jsp:param name="page" value="today" />
+</jsp:include>
 <h1>今日のおみくじ</h1>
 
 <div>

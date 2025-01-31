@@ -74,6 +74,6 @@
 <a href="birthdayfortune.jsp">誕生日占いをする</a>
 <a href="kanji-fortune.jsp">漢字占いをする</a>
 <a href="today.jsp">今日の運勢を占う</a>
-<a href="tarott.jsp">タロット占いをする</a>
+<a href="tarot.jsp">タロット占いをする</a>
 </body>
 </html>

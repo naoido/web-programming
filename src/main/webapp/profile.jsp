@@ -1,24 +1,28 @@
+<%@ page import="com.naoido.webpro.model.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page session="true" %>
 <%
-    String name = (String) session.getAttribute("name");
-    String birthday = (String) session.getAttribute("birthday");
-    Integer age = (Integer) session.getAttribute("age");
+    User user = (User) session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>プロフィール</title>
-    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-<div class="profile-container">
-    <h1>プロフィール</h1>
-    <p><strong>名前:</strong> <%= name %></p>
-    <p><strong>生年月日:</strong> <%= birthday %></p>
-    <p><strong>年齢:</strong> <%= age %>才</p>
-    <a href="edit.jsp">編集</a>
-</div>
+    <jsp:include page="nav.jsp">
+        <jsp:param name="page" value="profile" />
+    </jsp:include>
+    <% if (request.getParameter("error") != null) { %>
+        <p style="color: red;">Invalid email or password.</p>
+    <% } %>
+    <div class="profile-container">
+        <h1>プロフィール</h1>
+        <p><strong>名前:</strong> <%= user.getUsername() %></p>
+        <p><strong>メール: <%= user.getEmail() %></strong></p>
+        <a href="edit.jsp">編集</a>
+    </div>
 </body>
 </html>

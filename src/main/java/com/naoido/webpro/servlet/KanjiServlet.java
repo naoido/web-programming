@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-import com.naoido.webpro.DAO.DAO;
+import com.naoido.webpro.dao.KanjiDao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -13,7 +13,7 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet("/KanjiServlet")
 public class KanjiServlet extends HttpServlet {
-
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -25,9 +25,9 @@ public class KanjiServlet extends HttpServlet {
         int kakusuu = 0;
         try {
             for(String i: nameList) {
-                kakusuu += DAO.kanji(i);
+                kakusuu += KanjiDao.kanji(i);
             }
-        }catch(Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
 
@@ -37,9 +37,9 @@ public class KanjiServlet extends HttpServlet {
             nowdate += Integer.parseInt(i);
         }
         Random rand = new Random(nowdate + kakusuu);
-        int fortune = rand.nextInt(7);
+        int fortune = rand.nextInt(8);
 
-        String luck = null;
+        String luck;
         if(fortune == 0) {
             luck = "大吉";
         }else if(fortune == 1) {

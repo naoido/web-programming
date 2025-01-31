@@ -10,9 +10,15 @@
 <head>
 </head>
 <body>
+    <jsp:include page="nav.jsp">
+        <jsp:param name="page" value="kanji" />
+    </jsp:include>
     <h1>名前の画数占い</h1><br>
     <form action="KanjiServlet" method="post">
-        お名前：<input type="text" name="name">
+        <label>
+            お名前：
+            <input type="text" name="name">
+        </label>
         <input type="submit" value="占う">
     </form>
 </body>

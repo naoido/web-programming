@@ -57,9 +57,11 @@
     </script>
 </head>
 <body>
+<jsp:include page="nav.jsp">
+    <jsp:param name="page" value="bithday" />
+</jsp:include>
 <h2>誕生日占い</h2>
 
-<!-- 生年月日入力フォーム -->
 <label for="month">月:</label>
 <select id="month">
     <option value="1">1月</option>
@@ -116,7 +118,5 @@
 <!-- 結果表示 -->
 <h3>運勢結果:</h3>
 <p id="result"></p>
-
-<%@ include file="footer.jsp" %> <!--matuzaki-->
 </body>
 </html>

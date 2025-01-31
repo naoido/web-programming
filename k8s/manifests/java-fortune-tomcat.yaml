@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-fortune-tomcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-fortune
+  template:
+    metadata:
+      labels:
+        app: java-fortune
+    spec:
+      containers:
+        - name: tomcat
+          image: naoido/java-fortune-tomcat:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_URL
+              value: "jdbc:mysql://java-fortune-mysql-service:3306/fortune?useSSL=false&allowPublicKeyRetrieval=true"
+            - name: DATABASE_USER
+              value: "root"
+            - name: DATABASE_PASSWORD
+              value: "password"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-fortune-tomcat-service
+spec:
+  type: NodePort
+  selector:
+    app: java-fortune
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000

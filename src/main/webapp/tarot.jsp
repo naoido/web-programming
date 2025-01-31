@@ -10,6 +10,9 @@
     </script>
 </head>
 <body>
+<jsp:include page="nav.jsp">
+    <jsp:param name="page" value="tarot" />
+</jsp:include>
 <h1>タロット占い</h1>
 <%
     // タロットカードの名前と意味のリスト

@@ -34,6 +34,6 @@ public class SaveTarotResultServlet extends HttpServlet {
             session.setAttribute("tarotResult", result);
         }
 
-        response.sendRedirect("tarott.jsp");
+        response.sendRedirect("tarot.jsp");
     }
 }

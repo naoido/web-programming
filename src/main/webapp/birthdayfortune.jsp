@@ -58,7 +58,7 @@
 </head>
 <body>
 <jsp:include page="nav.jsp">
-    <jsp:param name="page" value="bithday" />
+    <jsp:param name="page" value="birthday" />
 </jsp:include>
 <h2>誕生日占い</h2>
 

@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 INSERT INTO users (username, email, password) VALUES
   ('admin', 'admin@example.com', '$2a$10$qkiXO8D3Q1a9m.C445ycEeabABWJns5cQP6JfMxPc7z.iMtFYmhSC'),
-  ('naoto', 'naoto@example.com', '$2a$10$qkiXO8D3Q1a9m.C445ycEeabABWJns5cQP6JfMxPc7z.iMtFYmhSC');
+  ('naoto', 'naoto@example.com', '$2a$10$x2PHzVttD1zOuq79WS3p9ebHnHYiQyTLCm8eik6ZMTEFuwzgyu2Oi');
 
 DROP TABLE IF EXISTS kanjis;
 CREATE TABLE kanjis (
